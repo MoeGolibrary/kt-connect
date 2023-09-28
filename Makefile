@@ -26,9 +26,8 @@ check:
 # build ktctl
 ktctl:
 	go mod download
-	GOARCH=amd64 GOOS=linux go build -ldflags "-s -w -X main.version=${TAG}" -o artifacts/linux/ktctl ./cmd/ktctl
-	GOARCH=amd64 GOOS=darwin go build -ldflags "-s -w -X main.version=${TAG}" -o artifacts/macos/ktctl ./cmd/ktctl
-	GOARCH=amd64 GOOS=windows go build -ldflags "-s -w -X main.version=${TAG}" -o artifacts/windows/ktctl.exe ./cmd/ktctl
+	GOARCH=amd64 GOOS=darwin go build -ldflags "-s -w -X main.version=${TAG}" -o artifacts/ktctl-darwin-x86_64 ./cmd/ktctl
+	GOARCH=amd64 GOOS=darwin go build -ldflags "-s -w -X main.version=${TAG}" -o artifacts/ktctl-darwin-arm64 ./cmd/ktctl
 
 # minimize binary size
 upx:
